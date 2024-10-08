@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 int main() {
     char name[100];
-    time_t t = time(NULL);
-    struct tm tm = *localtime(&t);
+    int year, month, day;
 
     // 사용자로부터 이름 입력 받기
     printf("이름을 입력하세요: ");
     fgets(name, sizeof(name), stdin);
 
-    // 현재 날짜 출력
-    printf("현재 날짜: %d-%02d-%02d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday);
-
-    // 화면 지우기 (터미널에서 작동하는 경우)
-    printf("\033[H\033[J");
+    // 사용자로부터 날짜 입력 받기
+    printf("연도를 입력하세요 (예: 2024): ");
+    scanf_s("%d", &year);
+    printf("월을 입력하세요 (예: 10): ");
+    scanf_s("%d", &month);
+    printf("일을 입력하세요 (예: 8): ");
+    scanf_s("%d", &day);
 
     // 스플래시 화면 출력
     printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
@@ -43,8 +43,4 @@ int main() {
 
     printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
     printf("[사용자]: %s", name);
-    printf("[실행 시간]: %d년 %d월 %d일\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday);
-    printf("===========================================================================\n");
-
-    return 0;
-}
+    printf("[입력한 날짜]: %d년
