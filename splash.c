@@ -10,7 +10,7 @@ int main() {
     printf("이름을 입력하세요: ");
     fgets(name, sizeof(name), stdin);
     
-    // 개행 문자 제거 (배열 길이를 활용하여 직접 체크)
+    // 개행 문자 제거
     int len = 0;
     while (name[len] != '\0') {
         if (name[len] == '\n') {
@@ -27,6 +27,12 @@ int main() {
     // 날짜 파싱
     if (sscanf(date, "%d-%d-%d", &year, &month, &day) != 3) {
         printf("날짜 형식이 올바르지 않습니다.\n");
+        return 1; // 오류 코드 반환
+    }
+
+    // 날짜 유효성 체크
+    if (month < 1 || month > 12 || day < 1 || day > 31) {
+        printf("유효하지 않은 날짜입니다.\n");
         return 1; // 오류 코드 반환
     }
 
