@@ -9,7 +9,7 @@ int main() {
     // 사용자로부터 이름 입력 받기
     printf("이름을 입력하세요: ");
     fgets(name, sizeof(name), stdin);
-    name[strcspn(name, "\n")] = 0; // 개행 문자 제거
+
 
     // 사용자로부터 날짜 입력 받기
     printf("현재 날짜를 \"yyyy-mm-dd\" 형식으로 입력하세요: ");
