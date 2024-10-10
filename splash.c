@@ -10,9 +10,14 @@ int main() {
     printf("이름을 입력하세요: ");
     fgets(name, sizeof(name), stdin);
     
-    // 개행 문자 제거 (최대 길이를 체크하여 마지막 문자를 NULL로 변경)
-    if (name[0] != '\0' && name[strlen(name) - 1] == '\n') {
-        name[strlen(name) - 1] = '\0'; // 개행 문자 제거
+    // 개행 문자 제거 (배열 길이를 활용하여 직접 체크)
+    int len = 0;
+    while (name[len] != '\0') {
+        if (name[len] == '\n') {
+            name[len] = '\0'; // 개행 문자 제거
+            break;
+        }
+        len++;
     }
 
     // 사용자로부터 날짜 입력 받기
