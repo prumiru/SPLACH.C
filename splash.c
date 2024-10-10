@@ -15,7 +15,7 @@ int main() {
     // 사용자로부터 날짜 입력 받기
     printf("현재 날짜를 \"yyyy-mm-dd\" 형식으로 입력하세요: ");
     fgets(date, sizeof(date), stdin);
-    sscanf(date, "%d-%d-%d", &year, &month, &day);
+    scanf_s(date, "%d-%d-%d", &year, &month, &day);
 
     // 스플래시 화면 출력
     printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
